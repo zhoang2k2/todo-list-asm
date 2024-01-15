@@ -72,38 +72,66 @@ ul {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 
-  li {
-    padding: 10px;
+  div {
     background-color: #fffcf0;
     border: 1px solid #ffefba;
     border-radius: 10px;
-    height: 50px;
+    height: 75px;
     position: relative;
+    overflow: hidden;
+
     transition: 0.25s ease-in-out;
 
     &:hover {
       box-shadow: 0 0 10px 0 gray;
+      height: 50vh;
+      z-index: 999;
     }
 
-    button {
-      border: none;
-      color: #654ea3;
-      background-color: transparent;
-      font-weight: bold;
-      opacity: 0.75;
+    li {
+      width: 90%;
+      padding: 10px 0 10px 20px;
 
-      position: absolute;
-      right: 5px;
-      top: 5px;
-      margin-left: 10px;
-      cursor: pointer;
+      button {
+        font-size: 16px;
+        border: none;
+        color: rosybrown;
+        background-color: transparent;
+        font-weight: bold;
+        opacity: 0.5;
 
-      transition: 0.25s ease-in-out;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        margin-left: 10px;
+        cursor: pointer;
 
-      &:hover {
-        opacity: 1;
-        font-size: 18px;
+        transition: 0.25s ease-in-out;
+
+        &:hover {
+          color: red;
+          opacity: 1;
+          font-size: 20px;
+        }
+      }
+
+      // CHECKBOX
+      input {
+        position: absolute;
+        right: 6px;
+        top: 22px;
+        width: 12px;
+        opacity: 0.5;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }
+}
+
+.text-decoration {
+  text-decoration: line-through;
 }

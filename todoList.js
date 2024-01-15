@@ -15,12 +15,15 @@ function setLocalStorage() {
 function firstRender(listItem) {
     list.innerHTML = ""
     listItem.forEach(item => {
-        const todo = document.createElement('li');
+        const todo = document.createElement('div');
         todo.id = item.id;
         todo.innerHTML = ` 
-            ${item.content}
-            <button onClick="deleteBtn(${item.id})">x</button>
-        `;
+            <li>
+                <span>${item.content}</span>
+                <button onClick="deleteBtn(${item.id})">x</button>
+                <input type="checkbox" class="checkbox" onChange="checkItem(this, ${item.id})">
+            </li>
+            `;
         list.appendChild(todo);
     });
 
@@ -54,3 +57,15 @@ addBtn.addEventListener('click', (e) => {
 
     input.value = "";
 })
+
+
+// CHECK ITEM
+function checkItem(checkbox, id) {
+    const li = document.getElementById(id);
+    const span = li.querySelector('span');
+    if (checkbox.checked) {
+        span.classList.add('text-decoration');
+    } else {
+        span.classList.remove('text-decoration');
+    }
+}
